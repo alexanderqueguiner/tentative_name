@@ -1,224 +1,220 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="Exploring how the sound and culture of popular music evolve over time.">
-  <meta name="keywords" content="music, data visualization, CDS301, GMU Korea">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Sonic and Cultural Dimensions of Popular Music</title>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Music Evolution Analysis — Minjun Park</title>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
   <style>
-  body {
-    background-color: #16203B !important;
-    color: white !important;
-  }
-
-  /* ← ADD THIS PART */
-  figure img {
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-  }
-
-  p, li, figcaption {
-    color: white !important;
-    text-align: justify !important;
-  }
-
-  .hero, .section, .footer {
-    background-color: #16203B !important;
-    color: white !important;
-  }
-
-  a {
-    color: #7AD957 !important;
-  }
-</style>
-
-
-  <link rel="icon" href="./static/images/favicon.png">
+    /* Global Typography */
+    * { font-family: "Times New Roman", serif !important; letter-spacing: 0.4px; }
+    html, body {
+      background-color: #16203b !important;
+      color: #e8e8e8 !important;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
+        url('./static/images/BG.png') !important;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+    /* Larger, more readable text — reduced 20% */
+    p, li, figcaption, .content {
+      font-size: 1.08rem !important;   /* was 1.35rem */
+      line-height: 1.52 !important;     /* was 1.9 */
+    }
+    figcaption {
+      font-size: 0.92rem !important;    /* was 1.15rem */
+      color: #cccccc !important;
+      font-style: italic;
+      margin-top: 12.8px !important;    /* was 16px */
+    }
+    /* Headings — reduced 20% */
+    .title { color: #ffffff !important; text-shadow: 0 0 12px rgba(255,255,255,0.15); }
+    h1.title { font-size: 3.04rem; margin-bottom: 0.4rem; }        /* was 3.8rem / 0.5rem */
+    h2.title.is-3 { font-size: 1.92rem; margin-bottom: 1.2rem; }   /* was 2.4rem / 1.5rem */
+    /* Divider */
+    .divider {
+      position: relative; width: 100%; text-align: center; margin: 4rem 0; /* was 5rem */
+    }
+    .divider .diamond {
+      font-size: 2.24rem; color: #ffffff;                         /* was 2.8rem */
+      text-shadow: 0 0 12px rgba(255,255,255,0.4), 0 0 30px rgba(255,255,255,0.2);
+    }
+    .divider:before,
+    .divider:after {
+      content: ""; position: absolute; top: 50%; width: 42%; height: 1.2px; /* was 1.5px */
+      background: linear-gradient(to right, transparent, #6d89ff80);
+    }
+    .divider:before { left: 0; }
+    .divider:after { right: 0; background: linear-gradient(to left, transparent, #6d89ff80); }
+    /* Images: 60% size + glass effect */
+    figure img {
+      border-radius: 12.8px;           /* was 16px */
+      padding: 8px;                    /* was 10px */
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 9.6px 32px rgba(0,0,0,0.6); /* was 0 12px 40px */
+      transition: transform 0.35s ease;
+      width: 60% !important;
+      height: auto !important;
+      max-width: none !important;
+    }
+    figure img:hover { transform: scale(1.15); }
+    /* Fade-in animation */
+    .section, figure, .content {
+      opacity: 0;
+      animation: fadeIn 1.4s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Links */
+    a { color: #80bfff; transition: 0.3s; }
+    a:hover { color: #d0e8ff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+    /* Footer */
+    .footer {
+      background: #0d1325 !important;
+      color: #b0b0b0 !important;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 3.2rem 1.2rem;         /* was 4rem 1.5rem */
+      margin-top: 4.8rem;             /* was 6rem */
+      font-size: 0.88rem;             /* was 1.1rem */
+    }
+    /* Other minor text adjustments */
+    .subtitle.is-4 { font-size: 1.28rem !important; }     <!-- reduced from implicit ~1.6rem -->
+    .is-size-5 { font-size: 1.2rem !important; }          <!-- was 1.5rem -->
+  </style>
 </head>
 <body>
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">
-            How Have the Sonic and Cultural Dimensions of Music Changed Over Time?
-          </h1>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              Alexander Queguiner<sup>1</sup>,
-            </span>
-            <span class="author-block">
-              Casey Tchoo<sup>1</sup>,
-            </span>
-            <span class="author-block">
-              Minjun Park<sup>1</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>George Mason University Korea</span>
-          </div>
-
+  <section class="section">
+    <div class="container has-text-centered">
+      <h1 class="title">Music</h1>
+      <p class="subtitle is-4">Evolution of Loudness & Emotions (1950–2019)</p>
+      <p class="is-size-5" style="margin-top: 1.2rem; font-size: 1.2rem;">
+        Minjun Park<sup>1</sup> • Minjun Park<sup>1</sup><br>
+        <sup>1</sup>George Mason University Korea
+      </p>
+    </div>
+  </section>
+  <div class="divider"><span class="diamond">◆</span></div>
+  <section class="section">
+    <div class="container content">
+      <h2 class="title is-3 has-text-centered">Music's Loudness Over The Years</h2>
+      <p class="has-text-justified">
+        As technology and social moods change, so does the loudness of the music we listen to. We examined how music volume has evolved over the decades, speculated on the underlying reasons, and explored its relationships with acousticness and instrumentalness.
+      </p>
+      <figure class="has-text-centered">
+        <img src="./static/images/ONE.png" alt="Stacked bar plot of loudness over years">
+        <figcaption>Figure 4. Stacked bar plot showing music loudness trends over the years.</figcaption>
+      </figure>
+      <p class="has-text-justified">
+        Music loudness rapidly increased starting in the 1990s—likely due to the rise of electronic music and digital mastering standards that reduced dynamic range in the “Loudness War.”
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered is-multiline">
+        <div class="column is-half">
+          <figure class="has-text-centered">
+            <img src="./static/images/THREE.png" alt="Acousticness vs Loudness">
+            <figcaption>Figure 5. Acousticness and Loudness correlation (R² = 0.29).</figcaption>
+          </figure>
+          <p class="has-text-justified">
+            Loudness and acousticness show a moderate negative correlation, suggesting the shift toward electronic production reduced acoustic elements while increasing overall volume.
+          </p>
+        </div>
+        <div class="column is-half">
+          <figure class="has-text-centered">
+            <img src="./static/images/TWO.png" alt="Instrumentalness vs Loudness">
+            <figcaption>Figure 6. Instrumentalness and Loudness correlation.</figcaption>
+          </figure>
+          <p class="has-text-justified">
+            Instrumentalness shows almost no correlation with loudness—vocal presence does not drive perceived volume.
+          </p>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ABSTRACT -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Abstract</h2>
-    <div class="content has-text-justified">
-      <p>
-        This project explores how the sound and cultural themes of popular music have changed over time using a dataset of songs released between 1950 and 2019. Each track contains metadata including release year, genre, lyrics-derived topics, and audio features. We visualize long-term patterns in genre dominance, acousticness, and explicit language. Our goal is to show how music reflects shifts in technology, culture, and artistic style.
+  </section>
+  <div class="divider"><span class="diamond">◆</span></div>
+  <section class="section">
+    <div class="container content">
+      <h2 class="title is-3 has-text-centered">Music and Emotions</h2>
+      <p class="has-text-justified">
+        Emotions are at the heart of music. This section explores how happiness, sadness, violence, and romanticism in songs have evolved over seven decades and their relationship with loudness.
+      </p>
+      <figure class="has-text-centered">
+        <img src="./static/images/heatmap.png" alt="Emotion heatmap">
+        <figcaption>Figure 7. Heatmap of emotional content over time (lighter = lower, darker red = higher).</figcaption>
+      </figure>
+      <p class="has-text-justified">
+        Happiness remains the dominant emotion across all decades. Sadness and romanticism declined, while violence slightly increased. Happiness peaked in the 1960s–80s before gradually decreasing.
+      </p>
+      <figure class="has-text-centered">
+        <img src="./static/images/happiness trend.png" alt="Happiness by genre">
+        <figcaption>Figure 8. Happiness trend (1950s–2010s) across seven major genres.</figcaption>
+      </figure>
+      <p class="has-text-justified">
+        Reggae and hip-hop consistently convey the highest happiness, while jazz and rock remain the least happy. All genres show a decline in happiness from the 1950s to the 2010s.
       </p>
     </div>
-  </div>
-</section>
-
-<!-- DATA & METHODOLOGY -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Data and Methodology</h2>
-    <div class="content has-text-justified">
-      <p>
-        We used the “Music Dataset 1950–2019” from Kaggle, which includes audio features (such as acousticness, loudness, energy, and valence) and topic scores extracted from lyrics. After cleaning release years and filtering missing values, we grouped songs by decade and genre. Visualizations were created in Python using pandas and matplotlib. A consistent dark-blue theme and fixed genre color palette were applied to all figures to ensure stylistic consistency across the website.
+  </section>
+  <div class="divider"><span class="diamond">◆</span></div>
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Loudness vs Happiness & Sadness</h2>
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <figure class="has-text-centered">
+            <img src="./static/images/LoudnessHappiness.png" alt="Loudness vs Happiness KDE">
+            <figcaption>Loudness × Happiness (darker = higher density)</figcaption>
+          </figure>
+          <p class="has-text-justified">
+            High-density regions cluster at loudness 0.6–0.8 and happiness 0.5–0.8 → louder music tends to feel happier.
+          </p>
+        </div>
+        <div class="column is-half">
+          <figure class="has-text-centered">
+            <img src="./static/images/LoudnessSadness.png" alt="Loudness vs Sadness KDE">
+            <figcaption>Loudness × Sadness (darker = higher density)</figcaption>
+          </figure>
+          <p class="has-text-justified">
+            Loud music shows very weak association with sadness (most dense at sadness ≈ 0–0.2).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"><span class="diamond">◆</span></div>
+  <section class="section">
+    <div class="container content">
+      <h2 class="title is-3 has-text-centered">Conclusion</h2>
+      <p class="has-text-justified">
+        Over the past seven decades, music has become significantly louder while happiness—despite remaining the dominant emotion—has gradually declined across all genres. The rise of electronic production appears to have simultaneously increased loudness and reduced acousticness. Louder songs today are more likely to evoke happiness than sadness, reflecting broader cultural and technological shifts in music production and consumption.
       </p>
     </div>
-  </div>
-</section>
-
-<!-- RESULTS SECTION -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Results: Genre Trends and Cultural Signals</h2>
-    <div class="content has-text-justified">
-      <p>
-        Below are three visualizations summarizing how genres evolve across decades, how acoustic they sound, and how explicit their lyrics tend to be. A shared horizontal legend ensures that colors remain consistent across the entire project.
-      </p>
+  </section>
+  <div class="divider"><span class="diamond">◆</span></div>
+  <section class="section">
+    <div class="container content">
+      <h2 class="title is-3 has-text-centered">References & Data Sources</h2>
+      <ol class="has-text-justified">
+        <li>Shahane, S. (2021). Music dataset (1950–2019) [Data set]. Kaggle. <a href="https://www.kaggle.com/datasets/saurabhshahane/music-dataset-1950-to-2019">Link</a></li>
+        <li>Serra, J., et al. (2012). Measuring the evolution of contemporary western popular music. <em>Scientific Reports</em>, 2(1), 521. <a href="https://doi.org/10.1038/srep00521">DOI</a></li>
+      </ol>
     </div>
-
-    <!-- LEGEND -->
-    <figure class="image has-text-centered">
-      <img src="web_legend.png"
-           alt="Legend mapping genres to colors."
-           style="width: 80%; height: auto;">
-      <figcaption class="is-size-6">Figure 0. Genre color legend used consistently across all figures.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- FIGURE 1 -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-4 has-text-centered"></h2>
-
-    <figure class="image has-text-centered">
-      <img src="web_stackedbar.png"
-           alt="Stacked bar chart showing genre dominance by decade."
-           style="width: 75%; height: auto;">
-      <figcaption class="is-size-6">Figure 1. Rock and Pop dominate early decades, while Hip hop grows rapidly in later years.</figcaption>
-    </figure>
-
-    <div class="content has-text-justified">
-      <p>
-        This stacked bar chart reveals major shifts in genre popularity over time. Rock and Pop dominate earlier decades, whereas Hip hop rises significantly toward the 2000s and 2010s. Country, Reggae, and Blues remain smaller but stable contributors. The plot highlights how musical tastes diversify over time.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- FIGURE 2 -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-4 has-text-centered"></h2>
-
-    <figure class="image has-text-centered">
-      <img src="web_boxplot.png"
-           alt="Boxplot of acousticness by genre."
-           style="width: 75%; height: auto;">
-      <figcaption class="is-size-6">Figure 2. Country, Blues, and Jazz show the highest acousticness, while Hip hop and Pop tend to be less acoustic.</figcaption>
-    </figure>
-
-    <div class="content has-text-justified">
-      <p>
-        This boxplot compares how acoustic each genre tends to be. Country, Blues, and Jazz rely more on natural instrumentation, while Hip hop and Pop make heavier use of digital production. Rock falls in the middle, blending acoustic and electric elements.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- FIGURE 3 -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-4 has-text-centered"></h2>
-
-    <figure class="image has-text-centered">
-      <img src="web_horizontalbar.png"
-           alt="Horizontal bar chart for obscene scores."
-           style="width: 75%; height: auto;">
-      <figcaption class="is-size-6">Figure 3. Hip hop displays the highest explicit content, followed by Rock and Pop.</figcaption>
-    </figure>
-
-    <div class="content has-text-justified">
-      <p>
-        This bar chart highlights differences in explicit language across genres. Hip hop uses the most explicit language, followed by Rock and Pop. Jazz, Country, and Blues remain on the lower end, reflecting stylistic and cultural differences in lyrical expression.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- REFERENCES -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">References and Data Sources</h2>
-
-    <div class="content has-text-justified">
-      <p>
-        1. Saurabh Shahane. “Music Dataset 1950 to 2019.” Kaggle.  
-        <a href="https://www.kaggle.com/datasets/saurabhshahane/music-dataset-1950-to-2019" target="_blank">
-          Music Dataset 1950–2019
-        </a>
-      </p>
-
-      <p>
-        2. CDS 301 / 501: Scientific Information and Data Visualization, George Mason University Korea.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class='footer footer-compact'>
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-       This website was created for <strong>CDS 301 / 501: Scientific Information and Data Visualization (Fall 2025)</strong>.
-      </p>
-      <p>
-        Licensed under  
-        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
-      </p>
-    </div>
-  </div>
-</footer>
-
+  </section>
+  <footer class="footer has-text-centered">
+    <p>
+      Coursework for <strong>CDS 301 / 501: Scientific Information and Data Visualization (Fall 2025)</strong><br>
+      George Mason University Korea<br><br>
+    </p>
+  </footer>
 </body>
 </html>

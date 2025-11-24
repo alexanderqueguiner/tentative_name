@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-  <meta name="keywords" content="template, sample, html">
+        content="Exploring how the sound and culture of popular music evolve over time.">
+  <meta name="keywords" content="music, data visualization, CDS301, GMU Korea">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A Fancy Project</title>
+
+  <title>Sonic and Cultural Dimensions of Popular Music</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -14,6 +15,30 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+
+  <style>
+    body {
+      background-color: #16203B !important;
+      color: white !important;
+    }
+    .title, .subtitle, h1, h2, h3, h4, h5, h6 {
+      color: white !important;
+    }
+    p, li, figcaption {
+      color: white !important;
+    }
+    .hero, .section, .footer {
+      background-color: #16203B !important;
+      color: white !important;
+    }
+    .content {
+      color: white !important;
+    }
+    a {
+      color: #7AD957 !important; /* green highlight for links */
+    }
+  </style>
+
   <link rel="icon" href="./static/images/favicon.png">
 </head>
 <body>
@@ -23,13 +48,19 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">A Fancy Project Title</h1>
+          <h1 class="title is-1 publication-title">
+            How Have the Sonic and Cultural Dimensions of Music Changed Over Time?
+          </h1>
+
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              John Doe<sup>1</sup> and
+              Alexander Queguiner<sup>1</sup>,
             </span>
             <span class="author-block">
-              Jane Smith<sup>1</sup>
+              Casey Tchoo<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Minjun Park<sup>1</sup>
             </span>
           </div>
 
@@ -43,170 +74,144 @@
   </div>
 </section>
 
+<!-- ABSTRACT -->
 <section class="section">
   <div class="container is-max-desktop">
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>This is a template AI-generated text. This section contains a comprehensive introduction to the project’s core ideas and motivations. It presents the reader with an engaging overview of what the work is about, why it matters, and how it fits into the broader field. The text here outlines the key problem being addressed, highlights the opportunities and challenges, and sets the stage for the detailed developments in the following sections. It provides context by summarizing prior work or commonly encountered limitations, and articulates the unique contributions or novel approaches proposed. The narrative also emphasizes the potential impact of the project, both theoretically and practically, and may hint at empirical results or illustrative examples that will come later. By the end of this section, the reader should have a clear mental roadmap of what to expect: the objectives, the methodology, and the significance of the outcomes.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-<h2 class="title is-3 has-text-centered">A Catchy Title for the First Section</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt lectus quis libero interdum, non facilisis sapien aliquet. Sed sit amet ex hendrerit, dignissim purus sit amet, blandit est. Integer nec mauris at dolor egestas volutpat. Quisque efficitur metus vitae dolor fermentum, quis varius neque consectetur.
-      </p>
-    <figure class="image has-text-centered">
-        <img src="./static/images/Template_bar.png"
-       alt="Playfair 1801 chart"
-       class="img-small75"
-       style="display: inline-block; width: 75%; height: auto;">
-      <figcaption class="is-size-6 has-text-grey">
-        Figure 1. Visual representation of the project’s workflow using the template bar.
-      </figcaption>
-    </figure>
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
     <div class="content has-text-justified">
       <p>
-        Curabitur suscipit urna ut felis vulputate, nec dictum orci vehicula. Mauris aliquet, nunc et dignissim tincidunt, urna est tempus lacus, ut suscipit ex tellus a ipsum. Donec pretium tempor justo vitae molestie. Fusce ullamcorper leo id purus sodales, at cursus felis lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        This project explores how the sound and cultural themes of popular music have changed over time using a dataset of songs released between 1950 and 2019. Each track contains metadata including release year, genre, lyrics-derived topics, and audio features. We visualize long-term patterns in genre dominance, acousticness, and explicit language. Our goal is to show how music reflects shifts in technology, culture, and artistic style.
       </p>
     </div>
   </div>
 </section>
 
-
-<section class="section">
-<div class="container is-max-desktop">
-  <div class="columns is-centered">
-
-    <!-- Feature A -->
-    <div class="column">
-      <div class="content">
-        <h2 class="title is-3 has-text-centered">Feature A</h2>
-        <p>
-          In this section, we introduce Feature A, a core component of the project that plays a pivotal role in achieving the overall goals. The importance of this feature stems from its ability to bridge critical gaps in existing workflows, deliver performance enhancements, and unlock new possibilities for visualization, analysis, or interactivity.
-        </p>
-        <!-- Optional media/image/video goes here -->
-        <!-- <img src="./static/images/featureA.png" alt="Feature A illustration"> -->
-      </div>
-    </div>
-    <!-- /Feature A -->
-
-    <!-- Feature B -->
-    <div class="column">
-      <div class="content">
-        <h2 class="title is-3 has-text-centered">Feature B</h2>
-        <p>
-          Feature B is also important. In this section, we introduce Feature B, another core component of the project that plays a pivotal role in achieving the overall goals. The importance of this feature stems from its ability to bridge critical gaps in existing workflows, deliver performance enhancements, and unlock new possibilities for visualization, analysis, or interactivity.
-        </p>
-        <!-- Optional media/image/video goes here -->
-        <!-- <img src="./static/images/featureB.png" alt="Feature B illustration"> -->
-      </div>
-    </div>
-    <!-- /Feature B -->
-
-  </div>
-</div>
-</section>
-
+<!-- DATA & METHODOLOGY -->
 <section class="section">
   <div class="container is-max-desktop">
-<h2 class="title is-3 has-text-centered">Another Catchy Title for the Second Section</h2>
+    <h2 class="title is-3 has-text-centered">Data and Methodology</h2>
+    <div class="content has-text-justified">
+      <p>
+        We used the “Music Dataset 1950–2019” from Kaggle, which includes audio features (such as acousticness, loudness, energy, and valence) and topic scores extracted from lyrics. After cleaning release years and filtering missing values, we grouped songs by decade and genre. Visualizations were created in Python using pandas and matplotlib. A consistent dark-blue theme and fixed genre color palette were applied to all figures to ensure stylistic consistency across the website.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS SECTION -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results: Genre Trends and Cultural Signals</h2>
+    <div class="content has-text-justified">
+      <p>
+        Below are three visualizations summarizing how genres evolve across decades, how acoustic they sound, and how explicit their lyrics tend to be. A shared horizontal legend ensures that colors remain consistent across the entire project.
+      </p>
+    </div>
+
+    <!-- LEGEND -->
     <figure class="image has-text-centered">
-      <img src="./static/images/waterfall_example.png" alt="Template bar illustration">
-<figcaption class="is-size-6 has-text-grey">
-  Figure 2. Waterfall chart, which shows the cumulative breakdown of changes (positive and negative) across different categories, illustrating how each step contributes to the final total.  
-</figcaption>
+      <img src="./static/images/genre_legend_horizontal_dark.png"
+           alt="Legend mapping genres to colors."
+           style="width: 80%; height: auto;">
+      <figcaption class="is-size-6">Figure 0. Genre color legend used consistently across all figures.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- FIGURE 1 -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-centered">Genre Dominance by Decade</h2>
+
+    <figure class="image has-text-centered">
+      <img src="./static/images/genre_dom_dark_centered.png"
+           alt="Stacked bar chart showing genre dominance by decade."
+           style="width: 75%; height: auto;">
+      <figcaption class="is-size-6">Figure 1. Rock and Pop dominate early decades, while Hip hop grows rapidly in later years.</figcaption>
     </figure>
 
     <div class="content has-text-justified">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt lectus quis libero interdum, non facilisis sapien aliquet. Sed sit amet ex hendrerit, dignissim purus sit amet, blandit est. Integer nec mauris at dolor egestas volutpat. Quisque efficitur metus vitae dolor fermentum, quis varius neque consectetur. Curabitur suscipit urna ut felis vulputate, nec dictum orci vehicula. Mauris aliquet, nunc et dignissim tincidunt, urna est tempus lacus, ut suscipit ex tellus a ipsum. Donec pretium tempor justo vitae molestie. Fusce ullamcorper leo id purus sodales, at cursus felis lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        This stacked bar chart reveals major shifts in genre popularity over time. Rock and Pop dominate earlier decades, whereas Hip hop rises significantly toward the 2000s and 2010s. Country, Reggae, and Blues remain smaller but stable contributors. The plot highlights how musical tastes diversify over time.
       </p>
     </div>
   </div>
 </section>
 
+<!-- FIGURE 2 -->
 <section class="section">
   <div class="container is-max-desktop">
-<h2 class="title is-3 has-text-centered">Another Catchy Title for the Third Section</h2>
-    <figure class="image has-text-centered">
-<div style="text-align: center;">
-  <img src="./static/images/P_05-playfair-1801-plate1.png"
-       alt="Playfair 1801 chart"
-       class="img-small75"
-       style="display: inline-block; width: 75%; height: auto;">
-</div>
-<figcaption class="is-size-6 has-text-grey">
-  Figure 3. William Playfair's 1801 'Chart of the Extent, Population and Revenue of the Principal Nations of Europe.' The central pie displays each nation's share of European land area, while red and yellow radial bars show, respectively, population size and annual government revenue. First printed in <em>The Statistical Breviary</em>, it is widely regarded as the earliest known multi-slice pie chart and highlights the contrast between territorial extent, demographic weight, and fiscal power.
-</figcaption>
+    <h2 class="title is-4 has-text-centered">Acousticness Distribution by Genre</h2>
 
+    <figure class="image has-text-centered">
+      <img src="./static/images/acousticness_boxplot_dark_ordered.png"
+           alt="Boxplot of acousticness by genre."
+           style="width: 75%; height: auto;">
+      <figcaption class="is-size-6">Figure 2. Country, Blues, and Jazz show the highest acousticness, while Hip hop and Pop tend to be less acoustic.</figcaption>
     </figure>
 
     <div class="content has-text-justified">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt lectus quis libero interdum, non facilisis sapien aliquet. Sed sit amet ex hendrerit, dignissim purus sit amet, blandit est. Integer nec mauris at dolor egestas volutpat. Quisque efficitur metus vitae dolor fermentum, quis varius neque consectetur. Curabitur suscipit urna ut felis vulputate, nec dictum orci vehicula. Mauris aliquet, nunc et dignissim tincidunt, urna est tempus lacus, ut suscipit ex tellus a ipsum. Donec pretium tempor justo vitae molestie. Fusce ullamcorper leo id purus sodales, at cursus felis lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        This boxplot compares how acoustic each genre tends to be. Country, Blues, and Jazz rely more on natural instrumentation, while Hip hop and Pop make heavier use of digital production. Rock falls in the middle, blending acoustic and electric elements.
       </p>
     </div>
   </div>
 </section>
 
+<!-- FIGURE 3 -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Outro</h2>
-    <div class="content">
+    <h2 class="title is-4 has-text-centered">Average Obscene Score by Genre</h2>
+
+    <figure class="image has-text-centered">
+      <img src="./static/images/avg_obscene_by_genre_dark_inverted.png"
+           alt="Horizontal bar chart for obscene scores."
+           style="width: 75%; height: auto;">
+      <figcaption class="is-size-6">Figure 3. Hip hop displays the highest explicit content, followed by Rock and Pop.</figcaption>
+    </figure>
+
+    <div class="content has-text-justified">
       <p>
-        This is the last section. In this part, we bring together all the ideas explored throughout the project, reflecting on what was learned, what worked well, and what challenges emerged. We revisit the core objectives, summarizing how each was addressed, and highlight the most significant insights that have arisen from the work. Moreover, we outline how the outcomes contribute to the broader field, what implications they may have for future research or real-world applications, and why these findings matter. In addition, this section proposes concrete next steps: further experiments, methods refinement, validation on new datasets, collaborative extensions, or deployment scenarios. We also discuss potential limitations, acknowledge open questions, and suggest areas that merit deeper investigation.
+        This bar chart highlights differences in explicit language across genres. Hip hop uses the most explicit language, followed by Rock and Pop. Jazz, Country, and Blues remain on the lower end, reflecting stylistic and cultural differences in lyrical expression.
       </p>
     </div>
   </div>
 </section>
 
-  <section class="section">
+<!-- REFERENCES -->
+<section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">References and Data Sources</h2>
+
     <div class="content has-text-justified">
-  <p>  
-    1. Black, Joe; Doe, Jane; and Lee, Maria. “Template Paper Title on Data Analysis.” <em>Journal of Data Analysis & Visualization</em> 30, no. 1 (2023): 100-120.  
-  </p>
-  <p>  
-    2. White, Chris; Green, Anna; and Kim, Sam. “Template Methods for Interactive Dashboards.” <em>International Journal of Interactive Visualization</em> 25, no. 2 (2022): 210-234.  
-  </p>
-  <p>  
-    3. Miller, Pat; Gomez, Sofia; and Zhang, Lin. “Template Techniques for Labels & Annotation in Multidimensional Graphs.” <em>Computational Graphics & Data Systems</em> 12, no. 3 (2024): 45-70.  
-  </p>
-  <p>  
-    4. Wright, Ben; Park, Soo; and O’Neil, Pat. “Template Approaches to Temporal Flow Visualization.” <em>Decision Support & Data Analytics</em> 14, no. 3 (2021): 300-320.  
-  </p>
+      <p>
+        1. Saurabh Shahane. “Music Dataset 1950 to 2019.” Kaggle.  
+        <a href="https://www.kaggle.com/datasets/saurabhshahane/music-dataset-1950-to-2019" target="_blank">
+          Music Dataset 1950–2019
+        </a>
+      </p>
+
+      <p>
+        2. CDS 301 / 501: Scientific Information and Data Visualization, George Mason University Korea.
+      </p>
     </div>
   </div>
 </section>
 
-
+<!-- FOOTER -->
 <footer class='footer footer-compact'>
   <div class="container">
     <div class="content has-text-centered">
       <p>
-       This website was created as coursework for <strong>CDS 301 / 501: Scientific Information and Data Visualization (Fall 2025) at George Mason Korea</strong>.
+       This website was created for <strong>CDS 301 / 501: Scientific Information and Data Visualization (Fall 2025)</strong>.
       </p>
       <p>
-        This website is licensed under a <a rel="license"
-        href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-      </p>
-      <p>
-        Template design is based on the example site available at <a href="https://utkuozbulak.github.io/cds_301_template_website/" target="_blank" rel="noopener">CDS 301 Template Website</a>, which itself uses a layout from the <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener">Nerfies project site</a>.
+        Licensed under  
+        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
       </p>
     </div>
   </div>
 </footer>
 
-
 </body>
 </html>
-
